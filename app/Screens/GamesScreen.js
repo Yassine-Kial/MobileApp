@@ -10,6 +10,7 @@ import {
   Poppins_700Bold,
   Poppins_800ExtraBold,
 } from '@expo-google-fonts/poppins';
+import GamesInfo from '../Components/GamesInfo';
 
 function GamesScreen(props)
 {
@@ -67,12 +68,7 @@ function GamesScreen(props)
         onRequestClose={toggleModal}
       >
         <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <Text>This is your modal content.</Text>
-                        <TouchableOpacity onPress={toggleModal}>
-                            <Text>Close Modal</Text>
-            </TouchableOpacity>
-          </View>
+                    <GamesInfo toggleModal={toggleModal}/>
         </View>
       </Modal>
 
@@ -145,12 +141,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
-  modalContent: {
-    backgroundColor: 'white',
-    padding: 20,
-    borderRadius: 10,
-    elevation: 5,
-  },
+  
 
     gameSectionTitleContainer: {
         paddingLeft: '5%',

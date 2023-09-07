@@ -153,13 +153,12 @@ const styles = StyleSheet.create({
   
   playButton: {
     backgroundColor: '#461066',
-    paddingLeft: '5%',
-    paddingRight: '5%',
-    paddingTop: '1%',
-    paddingBottom: '1%',
-    borderRadius : 3,
+    paddingLeft: '7%',
+    paddingRight: '7%',
+    paddingTop: '2%',
+    paddingBottom: '2%',
+    borderRadius : 6,
   },
-
   buttonText: {
     fontSize: 25,
     color : '#fff',

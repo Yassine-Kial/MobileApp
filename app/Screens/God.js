@@ -22,15 +22,15 @@ function God(props)
 {
     return (
       <View style={styles.container}>
-
         <GamesInfo/>
-
         </View>
     );
 }
-const styles = StyleSheet.create({
 
+
+const styles = StyleSheet.create({
   container: {
+    backgroundColor : 'gray',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
