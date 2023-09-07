@@ -1,8 +1,7 @@
-import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Text, StatusBar, SafeAreaView, ScrollView} from 'react-native';
+import React , {useState} from 'react';
+import { View, StyleSheet, TouchableOpacity, Text, StatusBar, SafeAreaView, ScrollView, Modal} from 'react-native';
 import Svg, { Circle, Path } from "react-native-svg";
 import Games from '../Components/Games';
-
 import {
   useFonts,
   Poppins_400Regular,
@@ -13,11 +12,7 @@ import {
 } from '@expo-google-fonts/poppins';
 
 function GamesScreen(props)
-
 {
-
-
-    
     const [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_500Medium,
@@ -25,10 +20,17 @@ function GamesScreen(props)
     Poppins_700Bold,
     Poppins_800ExtraBold,
     });
+
+    // Step 2: Add state for modal visibility
+  const [modalVisible, setModalVisible] = useState(false);
+
+  // Step 3: Create function to toggle modal visibility
+  const toggleModal = () => {
+    setModalVisible(!modalVisible);
+  };
+
     return (
         <View>
-
-
             <StatusBar
                 barStyle="light-content" />
 
@@ -38,31 +40,8 @@ function GamesScreen(props)
 
                 <SafeAreaView style={styles.headerContent}>
                     
-                    <TouchableOpacity activeOpacity={0.2} style={styles.headerLeftPartContainer}>
+                    <TouchableOpacity  onPress={toggleModal} activeOpacity={0.2} style={styles.headerLeftPartContainer}>
                         <View style={styles.iconContainer}>
-                            <Svg
-                                width={17}
-                                height={28}
-                                viewBox="0 0 17 28"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                {...props}
-                                >
-                                <Path
-                                    d="M.65 15.592L12.475 27.26c.83.834 2.077.837 2.91.007.834-.83.836-2.077.007-2.91L5.228 13.939 15.437 3.568c.833-.83.836-2.077.006-2.91-.415-.417-.83-.626-1.454-.627-.623-.002-1.04.205-1.456.62L.658 12.266c-.834 1.038-.837 2.285-.007 3.326 0-.208 0-.208 0 0z"
-                                    fill="#fff"
-                                />
-                            </Svg>
-                        </View>
-                            <View><Text style={styles.leftPartText}>Back</Text></View>
-                    </TouchableOpacity>
-                    
-
-                    <View style={styles.headerTitleContainer}><Text style={styles.headerTitle}>Games</Text></View>
-
-
-                    <TouchableOpacity activeOpacity={0.2} style={styles.headerRightPartContainer}>
-                        <View style={styles.iconContainerRight}>
                             <Svg
                                     width={26}
                                     height={26}
@@ -76,13 +55,26 @@ function GamesScreen(props)
                                         fill="#fff"
                                     />
                                     </Svg>
-                           </View>
+                        </View>
                     </TouchableOpacity>
-
-
+                    <View style={styles.headerTitleContainer}><Text style={styles.headerTitle}>Games</Text></View>
                 </SafeAreaView>
-
             </View>
+             <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={toggleModal}
+      >
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <Text>This is your modal content.</Text>
+                        <TouchableOpacity onPress={toggleModal}>
+                            <Text>Close Modal</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
 
 
             <View style={styles.body}>
@@ -94,15 +86,15 @@ function GamesScreen(props)
                 <ScrollView horizontal={true} style={styles.scrollView}>
         {/* Content for the first horizontal scroll view */}
                     <Games title={'Suduko'} backgroundColor={'green'} />
-                                <Games title={'Suduko'} backgroundColor={'green'} />
+                                <Games title={'Suduko'} backgroundColor={'brown'} />
 
-                                <Games title={'Suduko'} backgroundColor={'green'} />
+                                <Games title={'Suduko'} backgroundColor={'red'} />
 
-                                <Games title={'Suduko'} backgroundColor={'green'} />
+                                <Games title={'Suduko'} backgroundColor={'orange'} />
 
-                                <Games title={'Suduko'} backgroundColor={'green'} />
+                                <Games title={'Suduko'} backgroundColor={'blue'} />
 
-                                <Games title={'Suduko'} backgroundColor={'green'} />
+                                <Games title={'Suduko'} backgroundColor={'pink'} />
                 </ScrollView>
                 
                 
@@ -112,15 +104,15 @@ function GamesScreen(props)
                 <ScrollView horizontal={true} style={styles.scrollView}>
         {/* Content for the first horizontal scroll view */}
                     <Games title={'Suduko'} backgroundColor={'green'} />
-                                <Games title={'Suduko'} backgroundColor={'green'} />
+                                <Games title={'Suduko'} backgroundColor={'brown'} />
 
-                                <Games title={'Suduko'} backgroundColor={'green'} />
+                                <Games title={'Suduko'} backgroundColor={'red'} />
 
-                                <Games title={'Suduko'} backgroundColor={'green'} />
+                                <Games title={'Suduko'} backgroundColor={'orange'} />
 
-                                <Games title={'Suduko'} backgroundColor={'green'} />
+                                <Games title={'Suduko'} backgroundColor={'blue'} />
 
-                                <Games title={'Suduko'} backgroundColor={'green'} />
+                                <Games title={'Suduko'} backgroundColor={'pink'} />
                 </ScrollView>
                 
                 <View style={styles.gameSectionTitleContainer}>
@@ -129,21 +121,16 @@ function GamesScreen(props)
                 <ScrollView horizontal={true} style={styles.scrollView}>
         {/* Content for the first horizontal scroll view */}
                     <Games title={'Suduko'} backgroundColor={'green'} />
-                                <Games title={'Suduko'} backgroundColor={'green'} />
+                                <Games title={'Suduko'} backgroundColor={'brown'} />
 
-                                <Games title={'Suduko'} backgroundColor={'green'} />
+                                <Games title={'Suduko'} backgroundColor={'red'} />
 
-                                <Games title={'Suduko'} backgroundColor={'green'} />
+                                <Games title={'Suduko'} backgroundColor={'orange'} />
 
-                                <Games title={'Suduko'} backgroundColor={'green'} />
+                                <Games title={'Suduko'} backgroundColor={'blue'} />
 
-                                <Games title={'Suduko'} backgroundColor={'green'} />
+                                <Games title={'Suduko'} backgroundColor={'pink'} />
                 </ScrollView>
-                
-
-                
-
-
             </View>
         </View>
     );
@@ -151,6 +138,19 @@ function GamesScreen(props)
 
 
 const styles = StyleSheet.create({
+
+    modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContent: {
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 10,
+    elevation: 5,
+  },
 
     gameSectionTitleContainer: {
         paddingLeft: '5%',
@@ -173,13 +173,11 @@ const styles = StyleSheet.create({
         top: 100,
         right : 150,
     },
-
      body: {
         backgroundColor: 'rgba(219,211,215,0.26)',
         height: '90%',
         paddingTop : '8%',
     },
-
     headerRightPartContainer: {
         alignItems: 'center',
         position: 'absolute',
@@ -187,20 +185,17 @@ const styles = StyleSheet.create({
         width: '18%',
         paddingRight: 10,
     },
-
      header: {
         height: '10%',
         backgroundColor: '#461066',
         justifyContent: 'flex-end',
         paddingBottom: 7,
     },
-    
-
     headerLeftPartContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         position: 'absolute',
-        left: 0,
+        left: '2%',
         width: '18%',
         justifyContent: 'space-between',
         paddingLeft: 10,

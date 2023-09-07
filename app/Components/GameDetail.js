@@ -2,13 +2,32 @@ import React , {useState} from 'react';
 import { View, StyleSheet, Text, SafeAreaView, TouchableOpacity} from 'react-native';
 import Svg, { G, Path, Defs, ClipPath } from "react-native-svg"
 import GeneralButtonReminder from '../Components/GeneralButtonReminder';
-const GameDetail = ({ closeModal }) =>
+
+import {
+    useFonts,
+  Poppins_400Regular,
+  Poppins_500Medium,
+  Poppins_600SemiBold,
+  Poppins_700Bold,
+  Poppins_800ExtraBold,
+} from '@expo-google-fonts/poppins';
+
+const GameDetail = ({ closeModal, backgroundColor }) =>
 {
+  const [fontsLoaded] = useFonts({
+    Poppins_400Regular,
+    Poppins_500Medium,
+    Poppins_600SemiBold,
+    Poppins_700Bold,
+    Poppins_800ExtraBold,
+    });
+
+
   return (
       
     <View style={styles.container}>
 
-      <View style={styles.header}>
+      <View style={[styles.header,{backgroundColor}]}>
         <SafeAreaView>
 
         <View style={styles.upperText}>
@@ -49,13 +68,13 @@ const GameDetail = ({ closeModal }) =>
                   <Text style={styles.title}>Fives</Text>
                   <Text style={styles.category}>Speed</Text>
                   <Text style={styles.description}>Fives is a complex word-discovery game,played against the clock. Make sure to keep plurals and past-tense in mind when searching for the right word!</Text>
-                  <Text>
+                  <View style={styles.scoreContainer}>
                       <Text style={styles.bestScore}>Best Score</Text>
                       <Text style={styles.score}>0</Text>
-                  </Text>
+                  </View>
               </View>
 
-            <View style={styles.buttonContainer}><TouchableOpacity style={styles.playButton}><Text>Let's play</Text></TouchableOpacity>
+            <View style={styles.buttonContainer}><TouchableOpacity style={styles.playButton}><Text style={styles.buttonText}>Let's play</Text></TouchableOpacity>
 </View>
 
 
@@ -67,106 +86,90 @@ const GameDetail = ({ closeModal }) =>
 
 const styles = StyleSheet.create({
 
-  saveButtonContainer: {
-    marginTop : 40,
-    justifyContent: 'center',
-    flexDirection: 'row',
-    backgroundColor: '#fff',
-    width: '100%',
-    flex: 1,
-    paddingTop : 20,
-  },
+ 
 
 
 
-  loginButton: {
-        backgroundColor: '#821655',
-        
-        paddingLeft: 180,
-        paddingRight: 180,
-      borderRadius: 3,
-    marginBottom: 40,
-    height: 40,
-    justifyContent: 'center',
-    alignItems : 'center',
-    },
 
-    loginButtonText: {
-        color: '#fff',
-      fontFamily: 'Poppins_500Medium',
-        fontSize : 20
-    },
 
-  generalSection: {
-    backgroundColor: '#F0ECEC',
-    height: '8%',
-    paddingLeft: '2%',
-    paddingTop: '5%',
-    paddingLeft : '6%',    
-  },
-
-  
-
-  iconSection: {
-    flexDirection : 'row',
-    justifyContent: 'center', 
-    marginTop : 30,
-  },
   cancelButton: {
     position: 'absolute',
       left: 20,
     top : 10,
   },
-
   container: {
     flex: 1,
   },
-
   header: {
     paddingTop : 15,
     borderTopRightRadius: 20,
     borderTopLeftRadius : 20,
-    backgroundColor: '#821655',
     height :'40%',
   },
- 
-
     body: {
     paddingLeft : '8%',
     height: '75%',
-    backgroundColor : '#F0ECEC',
+      backgroundColor: '#F0ECEC',
+      paddingRight: '8%',
+      paddingTop : '2%',
     },
-    
     title: {
-
         fontSize: 35,
-        fontWeight: 'bold',
-        marginBottom : 10,
-        
+      marginBottom: 10,
+        fontFamily : 'Poppins_700Bold',
     },
-
     category: {
-        fontSize: 24,
-                marginBottom : 10,
+      fontSize: 24,
+      fontFamily : 'Poppins_500Medium',
+      marginBottom: 10,
+            color : '#461066',
 
-        
     },
-
     bestScore: {
-        fontSize: 24,
+      fontSize: 24,
+      color: '#461066',
+      marginRight: '20%',
+            fontFamily : 'Poppins_500Medium',
+
         
     },
-
     score: {
-        fontSize: 20,        
+      fontSize: 20,  
+      color: '#461066',
+            fontFamily : 'Poppins_500Medium',
+
+
     },
     description: {
-        fontSize: 17,
-    },
-
+      fontSize: 17,
+      color : 'gray',
+  },   
+    
+  buttonContainer: {
+      alignItems : 'center',
+    marginTop: '50%',
+      
+  },
   
+  playButton: {
+    backgroundColor: '#461066',
+    paddingLeft: '5%',
+    paddingRight: '5%',
+    paddingTop: '1%',
+    paddingBottom: '1%',
+    borderRadius : 3,
+  },
 
+  buttonText: {
+    fontSize: 25,
+    color : '#fff',
+  },
 
-   
+  scoreContainer: {
+    marginTop : '5%',
+    flexDirection: 'row',
+    alignItems :'center',
+    
+  },
 })
 export default GameDetail;

@@ -17,12 +17,14 @@ import StepsDashboard from '../Components/StepsDashboard';
 import HeartRateDashboard from '../Components/HeartRateDashboard';
 import SleepDashboard from '../Components/SleepDashboard';
 import Games from '../Components/Games';
+import GamesInfo from '../Components/GamesInfo';
 function God(props)
 {
     return (
       <View style={styles.container}>
 
-        <Games title={'Suduko'} backgroundColor={'green'} />
+        <GamesInfo/>
+
         </View>
     );
 }
@@ -32,7 +34,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor : 'gray',   
   },    
 })
 

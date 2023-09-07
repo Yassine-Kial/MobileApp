@@ -24,7 +24,7 @@ const Games = ({ title, backgroundColor }) => {
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            <GameDetail closeModal={closeModal}/>
+            <GameDetail backgroundColor={backgroundColor} closeModal={closeModal}/>
           </View>
         </View>
       </Modal>
@@ -34,12 +34,12 @@ const Games = ({ title, backgroundColor }) => {
 const styles = StyleSheet.create({
     modalContainer: {
     flex: 1,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        backgroundColor: 'rgba(0, 0, 0, 0.2)',
     justifyContent : 'flex-end',
   },
   modalContent: {
     width: '100%',
-    height : '95%',
+    height : '94%',
   },
   container: {
     marginRight: 10, // Adjust as needed

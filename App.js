@@ -17,7 +17,7 @@ import LiveViewOffScreen from './app/Screens/LiveViewOffScreen';
 import HealthDashboardScreen from './app/Screens/HealthDashboardScreen';
 import GamesScreen from './app/Screens/GamesScreen';
 export default function App() {
-  return <GamesScreen/>;
+  return <God/>;
     
 }
 
