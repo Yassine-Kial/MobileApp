@@ -16,9 +16,9 @@ import Header from './app/Components/Header';
 import LiveViewOffScreen from './app/Screens/LiveViewOffScreen';
 import HealthDashboardScreen from './app/Screens/HealthDashboardScreen';
 import GamesScreen from './app/Screens/GamesScreen';
+import AddGameScreen from './app/Components/AddGameScreen';
 export default function App() {
-  return <AddReminderScreen/>;
-    
+  return <AddGameScreen/>;
 }
 
 

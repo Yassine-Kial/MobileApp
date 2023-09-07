@@ -159,6 +159,7 @@ const styles = StyleSheet.create({
     paddingBottom: '2%',
     borderRadius : 6,
   },
+
   buttonText: {
     fontSize: 25,
     color : '#fff',
