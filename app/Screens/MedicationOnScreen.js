@@ -86,10 +86,8 @@ function MedicationOnScreen(props)
                                     </Svg>
                            </View>
                     </TouchableOpacity>
-
-
                 </SafeAreaView>
-            </View>   
+            </View>
             <View style={styles.dashboardContainer}>
                 <View style={styles.dashboard}>     
                     <View style={styles.dashboardLeftPart}>
@@ -105,11 +103,8 @@ function MedicationOnScreen(props)
                         <TubeDay day={'Su'} />
                     </View>
                 </View>
-
             </View>
             <View style={styles.body}>
-
-
                 <ScrollView style={styles.scrollView}>
                     <DayReminder day={'25 AUGUST'} />
                     <DayReminder day={'18 MAY'} />
@@ -127,7 +122,7 @@ function MedicationOnScreen(props)
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
-    >
+                        >
       <Path
         d="M8 1v14M1 8h14"
         stroke="#461066"
@@ -135,13 +130,12 @@ function MedicationOnScreen(props)
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </Svg>
+                        </Svg>
                     </View>
                     <View>
                         <Text style={styles.buttonText}>Reminder</Text>
                     </View>
                 </TouchableOpacity>
-
                 <Modal
         animationType="slide"
         transparent={true}
@@ -159,8 +153,6 @@ function MedicationOnScreen(props)
     );
 }
 const styles = StyleSheet.create({
-
-
     modalContainer: {
     flex: 1,
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -171,12 +163,10 @@ const styles = StyleSheet.create({
     width: '100%',
     height : '95%',
   },
-
   modalText: {
     fontSize: 18,
     marginBottom: 10,
   },
-
   modalCloseButton: {
     marginTop: 20,
     backgroundColor: '#461066',
@@ -184,21 +174,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 5,
   },
-
   modalCloseButtonText: {
     color: '#fff',
     fontSize: 16,
   },    
-
-    
-    headerRightPartContainer: {
+headerRightPartContainer: {
         alignItems: 'center',
         position: 'absolute',
         right: 0,
         width: '18%',
         paddingRight: 10,
     },
-
     dashboardRightPart: {
         flexDirection: 'row',
         width: '50%',
@@ -210,7 +196,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent : 'center',
     },
-
     dashboard: {
         backgroundColor: '#fff',
         height: '80%',
@@ -218,12 +203,9 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         flexDirection : 'row',
     },
-
     buttonText: {
         color : '#fff',
     },
-
-
     addReminderButton: {
         flexDirection: 'row',
         backgroundColor: '#461066',
@@ -250,7 +232,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         marginRight : 10,
     },
-
     dashboardContainer: {
         backgroundColor: '#461066',
         height: '25%',
@@ -273,8 +254,6 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         paddingBottom: 7,
     },
-    
-
     headerLeftPartContainer: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -284,27 +263,21 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingLeft: 10,
     },
-
     headerContent: {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         position: 'relative',
     },
-
     leftPartText: {
         color: '#fff',
         fontSize: 17,
         fontFamily :'Poppins_400Regular',
-
     },
-
-
     headerTitle: {
         color: '#fff',
         fontSize: 20,
         fontFamily :'Poppins_400Regular',
     },
 })
-
 export default MedicationOnScreen;

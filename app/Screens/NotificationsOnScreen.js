@@ -12,10 +12,7 @@ import {
 } from '@expo-google-fonts/poppins';
 import NotificationCard from '../Components/NotificationCard';
 function NotificationsOnScreen(props)
-{
-
-
-
+{ 
     const [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_500Medium,
@@ -23,23 +20,14 @@ function NotificationsOnScreen(props)
     Poppins_700Bold,
     Poppins_800ExtraBold,
     });
-    
-
-    
     return (
         <View style = {styles.god}>
 
             <StatusBar
                 barStyle="light-content"  // Use "dark-content" for light background
                         />
-
-
-
             <View style={styles.header}>
-
-
                 <SafeAreaView style={styles.headerContent}>
-                    
                     <TouchableOpacity activeOpacity={0.2} style={styles.headerLeftPartContainer}>
                         <View style={styles.iconContainer}>
                             <Svg
@@ -58,10 +46,7 @@ function NotificationsOnScreen(props)
                         </View>
                             <View><Text style={styles.leftPartText}>Back</Text></View>
                     </TouchableOpacity>
-                    
-
                     <View style={styles.headerTitleContainer}><Text style={styles.headerTitle}>Notifications</Text></View>
-
                     <TouchableOpacity activeOpacity={0.2} style={styles.headerRightPartContainer}>
                         <View style={styles.iconContainerRight}>
                             <Svg
@@ -82,66 +67,33 @@ function NotificationsOnScreen(props)
                            </View>
                             <View><Text style={styles.rightPartText}>Filter</Text></View>
                     </TouchableOpacity>
-                    
-
-
                 </SafeAreaView>
-
-
-
-
             </View>
-
-
-
             <View style={styles.body}>
-
-                    
-
-
-
                 <NotificationCard title={"Medication alert"} time={"1m"} content={"[Patient Name] has taken their [Medication Name] on time."} backgroundColor={"#5FC113"} />
                 <NotificationCard title={"Medication alert"} time={"1m"} content={"[Patient Name] has taken their [Medication Name] on time."} backgroundColor={"#EA0C0C"} />
                 <NotificationCard title={"Health alert"} time={"1w"} content={"[Patient Name] is experiencing elevated stress levels."} backgroundColor={"#EA0C0C"} />
                 <NotificationCard title={"Activity alert"} time={"1w"} content={"[Patient Name] may have fallen. Please check on them."} backgroundColor={"#F36616"} />
                 <NotificationCard title={"Activity alert"} time={"1m"} content={"[Patient Name] completed a game! They played [Game Name]."} backgroundColor={"#5FC113"} />
-
-
                 <NotificationCard title={"Medication alert"} time={"1m"} content={"[Patient Name] has taken their [Medication Name] on time."} backgroundColor={"#5FC113"} />
                 <NotificationCard title={"Medication alert"} time={"1m"} content={"[Patient Name] has taken their [Medication Name] on time."} backgroundColor={"#EA0C0C"} />
                 <NotificationCard title={"Health alert"} time={"1w"} content={"[Patient Name] is experiencing elevated stress levels."} backgroundColor={"#EA0C0C"} />
                 <NotificationCard title={"Activity alert"} time={"1w"} content={"[Patient Name] may have fallen. Please check on them."} backgroundColor={"#F36616"} />
                 <NotificationCard title={"Activity alert"} time={"1m"} content={"[Patient Name] completed a game! They played [Game Name]."} backgroundColor={"#5FC113"} />
-
-
                 <NotificationCard title={"Medication alert"} time={"1m"} content={"[Patient Name] has taken their [Medication Name] on time."} backgroundColor={"#5FC113"} />
                 <NotificationCard title={"Medication alert"} time={"1m"} content={"[Patient Name] has taken their [Medication Name] on time."} backgroundColor={"#EA0C0C"} />
                 <NotificationCard title={"Health alert"} time={"1w"} content={"[Patient Name] is experiencing elevated stress levels."} backgroundColor={"#EA0C0C"} />
                 <NotificationCard title={"Activity alert"} time={"1w"} content={"[Patient Name] may have fallen. Please check on them."} backgroundColor={"#F36616"} />
                 <NotificationCard title={"Activity alert"} time={"1m"} content={"[Patient Name] completed a game! They played [Game Name]."} backgroundColor={"#5FC113"} />
-
-
-
-
-
                 </View>
-
-
-
         </View>
     );
 }
-
-
-
 const styles = StyleSheet.create({
-
-
      rightPartText: {
         color: '#fff',
         fontSize: 17,
         fontFamily :'Poppins_400Regular',
-
     },
 
     

@@ -4,6 +4,25 @@ import Svg, { G, Path, Defs, ClipPath } from "react-native-svg"
 import GeneralButtonReminder from '../Components/GeneralButtonReminder';
 const AddReminderScreen = ({ closeModal }) =>
 {
+
+  const [medicationName, setMedicationName] = useState('');
+  const [date, setDate] = useState('20/11/2002');
+  const [time, setTime] = useState('14:26');
+  const [quantity, setQuantity] = useState('');
+  const [comment, setComment] = useState('');
+  const [alarm, setAlarm] = useState('');
+
+    
+  const handleSave = () => {
+    console.log('Medication Name:', medicationName);
+    console.log('Date:', date);
+    console.log('Time:', time);
+    console.log('Quantity:', quantity);
+    console.log('Comment:', comment);
+    console.log('Alarm :', alarm);
+  };
+
+
   return (
       
     <View style={styles.container}>
@@ -110,49 +129,31 @@ const AddReminderScreen = ({ closeModal }) =>
       </Defs>
     </Svg>
             </View>
-            
-
         </View>
-          
-
-
-
-
-
           </SafeAreaView>
       </View>
-
-
-
       <View style={styles.body}>
-
-
         <View style={styles.generalSection}>
           <Text>GENERAL</Text>
         </View>
-
         <GeneralButtonReminder title={'Medication name'} rightText={''} icon={'pill'} />
         <GeneralButtonReminder title={'Date'} rightText={'20/11/2002'} icon={'date'} />
         <GeneralButtonReminder title={'Time'} rightText={'14:26'} icon={'time'} />
         <GeneralButtonReminder title={'Quantity'} rightText={''} icon={'quantity'} />
-
-
         <View style={styles.generalSection}>
           <Text>More details</Text>
         </View>
         <GeneralButtonReminder title={'Comment'} rightText={''} icon={'comment'} />
         <GeneralButtonReminder title={'Alarm repititions'} rightText={''} icon={'alarm'} />
         <View style={styles.saveButtonContainer}>
-                <TouchableOpacity activeOpacity={0.7} style={styles.loginButton}>
+                <TouchableOpacity activeOpacity={0.7} style={styles.loginButton} onPress={handleSave}>
                     <Text style={styles.loginButtonText}>save</Text>
                 </TouchableOpacity>
             </View>
       </View>
     </View>
-      
     );
 }
-
 const styles = StyleSheet.create({
 
   saveButtonContainer: {

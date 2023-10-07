@@ -17,8 +17,36 @@ import LiveViewOffScreen from './app/Screens/LiveViewOffScreen';
 import HealthDashboardScreen from './app/Screens/HealthDashboardScreen';
 import GamesScreen from './app/Screens/GamesScreen';
 import AddGameScreen from './app/Components/AddGameScreen';
-export default function App() {
-  return <AddGameScreen/>;
+
+
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import HomeScreen from './app/Screens/HomeScreen';
+import PrimaryScreen from './app/Screens/PrimaryScreen';
+
+ 
+export default function App()
+{
+
+  const Stack = createStackNavigator();
+
+  return (
+     <NavigationContainer>
+            <Stack.Navigator
+      initialRouteName="OnBoardingAllScreen"
+      screenOptions={{
+      headerShown: false,
+    }}
+      >
+        <Stack.Screen name="OnBoardingAllScreen" component={OnBoardingAllScreen} />
+        <Stack.Screen name="PrimaryScreen" component={PrimaryScreen}/>
+        <Stack.Screen name="HomeScreen" component={HomeScreen}/>
+        <Stack.Screen name="NotificationsOffScreen" component={NotificationsOffScreen} />
+        <Stack.Screen name="MedicationOnScreen" component={MedicationOnScreen}/>
+        <Stack.Screen name="NotificationsOnScreen" component={NotificationsOnScreen} />
+    </Stack.Navigator>
+      </NavigationContainer>
+  );
 }
 
 

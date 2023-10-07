@@ -134,15 +134,12 @@ function GamesScreen(props)
 
 
 const styles = StyleSheet.create({
-
     modalContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
-  
-
     gameSectionTitleContainer: {
         paddingLeft: '5%',
         marginBottom : '4%',
@@ -152,13 +149,9 @@ const styles = StyleSheet.create({
         color: '#461066',
       fontWeight : 'bold',
     },
-
     scrollView: {
-        paddingLeft: '5%',
-
-        
+        paddingLeft: '5%',    
     },
-
     sleep: {
         position: 'absolute',
         top: 100,
@@ -191,7 +184,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingLeft: 10,
     },
-
     headerContent: {
         flexDirection: 'row',
         justifyContent: 'center',
@@ -203,10 +195,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 17,
         fontFamily :'Poppins_400Regular',
-
     },
-
-
     headerTitle: {
         color: '#fff',
         fontSize: 20,
@@ -219,9 +208,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins_600SemiBold',
         fontSize: 20,
         marginBottom : 20,
-
     },
-
     secondaryText: {
         color: '#461066',
         textAlign: 'center',

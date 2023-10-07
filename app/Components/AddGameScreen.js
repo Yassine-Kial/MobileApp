@@ -8,7 +8,6 @@ const AddGameScreen = ({ closeModal }) =>
   return (
       
     <View style={styles.container}>
-
       <View style={styles.header}>
         <SafeAreaView>
 
@@ -31,23 +30,10 @@ const AddGameScreen = ({ closeModal }) =>
       />
     </Svg>
             </View>
-            
-
         </View>
-          
-
-
-
-
-
           </SafeAreaView>
       </View>
-
-
-
       <View style={styles.body}>
-
-
         <View style={styles.generalSection}>
           <Text>GENERAL</Text>
         </View>

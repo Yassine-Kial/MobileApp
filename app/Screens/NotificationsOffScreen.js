@@ -12,7 +12,7 @@ import {
   Poppins_800ExtraBold,
 } from '@expo-google-fonts/poppins';
 
-function Test(props)
+function NotificationsOffScreen({ navigation })
 {
     const [fontsLoaded] = useFonts({
     Poppins_400Regular,
@@ -24,21 +24,14 @@ function Test(props)
     
 
     return (
-
-        
-
         <View>
-
             <StatusBar
                 barStyle="light-content"  // Use "dark-content" for light background
       />
-
-
-
             <View style={styles.header}>
                 <SafeAreaView style={styles.headerContent}>
                     
-                    <TouchableOpacity activeOpacity={0.2} style={styles.headerLeftPartContainer}>
+                    <TouchableOpacity activeOpacity={0.2} style={styles.headerLeftPartContainer} onPress={() => navigation.goBack()}>
                         <View style={styles.iconContainer}>
                             <Svg
                                 width={17}
@@ -46,7 +39,6 @@ function Test(props)
                                 viewBox="0 0 17 28"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
-                                {...props}
                                 >
                                 <Path
                                     d="M.65 15.592L12.475 27.26c.83.834 2.077.837 2.91.007.834-.83.836-2.077.007-2.91L5.228 13.939 15.437 3.568c.833-.83.836-2.077.006-2.91-.415-.417-.83-.626-1.454-.627-.623-.002-1.04.205-1.456.62L.658 12.266c-.834 1.038-.837 2.285-.007 3.326 0-.208 0-.208 0 0z"
@@ -56,29 +48,17 @@ function Test(props)
                         </View>
                             <View><Text style={styles.leftPartText}>Back</Text></View>
                     </TouchableOpacity>
-                    
-
                     <View style={styles.headerTitleContainer}><Text style={styles.headerTitle}>Notifications</Text></View>
-
-
                 </SafeAreaView>
-
-
-
-
             </View>
             <View style={styles.body}>
-
-
                 <View style={styles.bellIconContainer}>
-
                      <Svg
                         width={150}
                         height={150}
                         viewBox="0 0 150 150"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        {...props}
                         >
                         <Circle cx={75} cy={75} r={75} fill="#EDECED" />
                         <Path
@@ -86,22 +66,11 @@ function Test(props)
                             fill="#461066"
                         />
                     </Svg>
-
                 </View>
-
-
                 <View>
-
                     <Text style={styles.primaryText}>You don’t have any notifications.</Text>
                     <Text style={styles.secondaryText}>Have a nice day !</Text>
-
-
                 </View>
-
-
-
-
-
             </View>
     
             
@@ -188,4 +157,4 @@ const styles = StyleSheet.create({
 
     
 })
-export default Test;
+export default NotificationsOffScreen;

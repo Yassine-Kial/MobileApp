@@ -125,7 +125,6 @@ const styles = StyleSheet.create({
         paddingTop : 20,
         
     },
-
     headerRightPartContainer: {
         alignItems: 'center',
         position: 'absolute',
@@ -136,7 +135,7 @@ const styles = StyleSheet.create({
 
      header: {
         height: '10%',
-        backgroundColor: '#461066',
+        backgroundColor: 'red',
         justifyContent: 'flex-end',
         paddingBottom: 7,
     },

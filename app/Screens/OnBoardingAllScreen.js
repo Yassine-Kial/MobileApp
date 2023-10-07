@@ -7,7 +7,9 @@ import OnBoarding3Screen from './OnBoarding3Screen';
 import OnBoarding4Screen from './OnBoarding4Screen';
 import OnBoarding5Screen from './OnBoarding5Screen';
 
-function OnBoardingAllScreen(props)
+import { Link } from 'expo-router';
+
+function OnBoardingAllScreen({navigation})
 {
     
     const [currentPage, setCurrentPage] = useState(0);
@@ -73,25 +75,19 @@ function OnBoardingAllScreen(props)
         <View style={styles.slide}>
           <OnBoarding5Screen/>
         </View>            
-
-
-
-
-
         {/* ... Repeat for other pages */}
       </Swiper>
-
       {/* Navigation Points */}
             <View style={styles.navigationPoints}>{renderNavigationPoints()}</View>
-
       {/* Sign In Button */}
       <View>
-                <TouchableOpacity activeOpacity={0.7} style={styles.loginButton}>
+                <TouchableOpacity activeOpacity={0.7} style={styles.loginButton } onPress={() => navigation.navigate('PrimaryScreen')}>
                     <Text style={styles.loginButtonText}>Sign in</Text>
                 </TouchableOpacity>
             </View>
     </View>
     );
+
 }
 
 const styles = StyleSheet.create({

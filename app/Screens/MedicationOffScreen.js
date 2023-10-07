@@ -31,15 +31,10 @@ function MedicationOffScreen(props)
 
     return (
         <View>
-
+           
              <StatusBar
                 barStyle="light-content" />
-
-
-
             <View style={styles.header}>
-
-
                 <SafeAreaView style={styles.headerContent}>
                     
                     <TouchableOpacity activeOpacity={0.2} style={styles.headerLeftPartContainer}>
