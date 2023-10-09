@@ -3,7 +3,7 @@ import { View, Text,StyleSheet, TouchableOpacity, Platform ,Modal} from 'react-n
 import Svg, { G, Path, Defs, ClipPath, Circle } from "react-native-svg";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { Picker } from '@react-native-picker/picker';
-import PickerOption from './PickerOption';
+import PickerOption from './MedicationsComponents/PickerOption';
 import PlusIcon from './PlusIcon';
 import PlusIconGame from './PlusIconGame';
 

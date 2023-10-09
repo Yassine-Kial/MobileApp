@@ -1,7 +1,7 @@
 import React , {useState} from 'react';
 import { View, StyleSheet, Text, SafeAreaView, TouchableOpacity} from 'react-native';
 import Svg, { G, Path, Defs, ClipPath } from "react-native-svg"
-import GeneralButtonReminder from '../Components/GeneralButtonReminder';
+import GeneralButtonReminder from './MedicationsComponents/GeneralButtonReminder';
 import GeneralButtonGame from './GeneralButtonGame';
 const AddGameScreen = ({ closeModal }) =>
 {

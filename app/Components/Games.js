@@ -1,6 +1,6 @@
 import React , {useState} from 'react';
 import { View, StyleSheet, Text, Dimensions, TouchableOpacity, Modal} from 'react-native';
-import AddReminderScreen from '../Screens/AddReminderScreen';
+import AddReminderScreen from '../Screens/MedicationsScreens/AddReminderScreen';
 import GameDetail from './GameDetail';
 
 const Games = ({ title, backgroundColor }) => {

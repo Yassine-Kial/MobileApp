@@ -28,7 +28,6 @@ function GettingStartedScreen(props)
         
         <SafeAreaView style={styles.gettingStartedContainer}>
             <View style={styles.logoContainer}>
-                <Image style={styles.logo} source={require('../assets/logo.png')}/>
             </View>
             <View style={styles.imageContainer}>
                 <Svg

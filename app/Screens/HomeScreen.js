@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Text, StatusBar, SafeAreaView } from 'react-native';
 import Svg, { Circle, Path } from "react-native-svg";
-
+import  { Mask, G } from "react-native-svg"
 import {
     useFonts,
   Poppins_400Regular,
@@ -10,8 +10,11 @@ import {
   Poppins_700Bold,
   Poppins_800ExtraBold,
 } from '@expo-google-fonts/poppins';
-
-function HomeScreen({ navigation })
+import LastRecord from '../Components/LastRecord';
+import { ScrollView } from 'react-native-gesture-handler';
+import EmotionSurvey from '../Components/EmotionSurvey';
+import AvatarImage from '../assets/Images/AvatarImage';
+function HomeScreen({navigation})
 {
     const [fontsLoaded] = useFonts({
     Poppins_400Regular,
@@ -26,7 +29,7 @@ function HomeScreen({ navigation })
                 barStyle="light-content" />
             <View style={styles.header}>
                 <SafeAreaView style={styles.headerContent}>
-                    <TouchableOpacity activeOpacity={0.2} style={styles.headerLeftPartContainer}>
+                    <TouchableOpacity activeOpacity={0.2} style={styles.headerLeftPartContainer} onPress={() => navigation.navigate('Profile')}>
                         <View style={styles.iconContainer}>
                             <Svg
       width={28}
@@ -50,7 +53,7 @@ function HomeScreen({ navigation })
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </Svg>
+                </Svg>
                         </View>
                     </TouchableOpacity>
                     <View style={styles.headerTitleContainer}><Text style={styles.headerTitle}>Home</Text></View>
@@ -72,28 +75,60 @@ function HomeScreen({ navigation })
                     </TouchableOpacity>
                 </SafeAreaView>
             </View>
-            <View style={styles.body}>
+        <View style={styles.body}>
+
+          <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
+
+            <View style={styles.oldManContainer}>
+
+            <View style={styles.welcomeTextContainer}>
+              <Text style={styles.welcomeText}>Welcome back Mouad !
+              </Text>
             </View>
+              <AvatarImage/>
+          </View>
+            <LastRecord />
+            <EmotionSurvey />
+                        <EmotionSurvey/>
+                        <EmotionSurvey/>
+                        <EmotionSurvey/>
+          </ScrollView>
+        </View>
         </View>
     );
 }
-
-
 const styles = StyleSheet.create({
 
-    sleep: {
-        position: 'absolute',
-        top: 100,
-        right : 150,
-    },
+  scrollContainer: {
+    width: '100%',
+    flexDirection: 'column',
+    paddingLeft : 20,
+  },
 
-     body: {
-        backgroundColor: '#fff',
+  welcomeTextContainer: {
+    paddingLeft : 20,
+    width: '100%',
+    paddingTop : 10,
+  },
+
+  welcomeText: {
+    fontSize: 18,
+    fontWeight : 'bold',
+  },
+  oldManContainer: {
+    backgroundColor: '#fff',
+    width: '95%',
+    alignItems: 'center',
+    flexDirection: 'column',
+    borderRadius: 10,
+    marginBottom: 10,
+    marginTop : 10,
+  },
+  body: {
+        backgroundColor: 'rgba(219,211,215,0.26)',
         height: '90%',
-        alignItems: 'center',
-        paddingTop : '40%',
+       alignItems: 'center',
     },
-
     headerRightPartContainer: {
         alignItems: 'center',
         position: 'absolute',
@@ -101,16 +136,13 @@ const styles = StyleSheet.create({
         width: '18%',
         paddingRight: 10,
     },
-
      header: {
         height: '10%',
         backgroundColor: '#461066',
         justifyContent: 'flex-end',
         paddingBottom: 7,
-    },
-    
-
-    headerLeftPartContainer: {
+  },
+  headerLeftPartContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         position: 'absolute',
@@ -119,49 +151,37 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingLeft: 10,
     },
-
     headerContent: {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         position: 'relative',
     },
-
     leftPartText: {
         color: '#fff',
         fontSize: 17,
         fontFamily :'Poppins_400Regular',
-
     },
-
-
     headerTitle: {
         color: '#fff',
         fontSize: 20,
         fontFamily :'Poppins_400Regular',
     },
-
     primaryText: {
         color: '#461066',
         textAlign: 'center',
         fontFamily: 'Poppins_600SemiBold',
         fontSize: 20,
         marginBottom : 20,
-
     },
-
     secondaryText: {
         color: '#461066',
         textAlign: 'center',
         fontFamily: 'Poppins_500Medium',
         fontSize : 15,
     },
-
     bellIconContainer: {
         marginBottom : 50,
     },
-    
-
-
 })
 export default HomeScreen;

@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         height: 35,
         width: 35,
         borderRadius: 17.5,
-        backgroundColor : '#821655',
+        backgroundColor : '#461066',
     },
 
     modalContainer: {
@@ -96,13 +96,13 @@ const styles = StyleSheet.create({
   },
   input: {
     borderBottomWidth: 1,
-    borderBottomColor: '#821655',
+    borderBottomColor: '#461066',
       marginBottom: 10,
         paddingBottom: 5,
     },
     submitButton: {
     marginTop : 20,
-    backgroundColor: '#821655',
+    backgroundColor: '#461066',
     color: '#fff',
     padding: 10,
     textAlign: 'center',

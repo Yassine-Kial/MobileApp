@@ -9,7 +9,6 @@ function LoginScreen(props) {
     );
 }
 
-
 const styles = StyleSheet.create({
     
 })
