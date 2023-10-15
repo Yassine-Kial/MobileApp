@@ -3,8 +3,15 @@ import { View, StyleSheet, Text, SafeAreaView, TouchableOpacity, Modal} from 're
 import GeneralButtonReminder from '../../Components/MedicationsComponents/GeneralButtonReminder';
 import PillIcon from '../../assets/Icons/PillIcon';
 import MessageFeedBack from '../../Components/MessageFeedBack';
-const AddReminderScreen = ({ closeModal }) =>
+const AddReminderScreen = ({ closeModal, handleAddReminder }) =>
 {
+
+
+
+
+
+
+
 
   const [modalTimeout, setModalTimeout] = useState(null);
 
@@ -34,15 +41,83 @@ const AddReminderScreen = ({ closeModal }) =>
   const [quantity, setQuantity] = useState('');
   const [comment, setComment] = useState('');
   const [alarm, setAlarm] = useState('');
+  const handleDateSelection = (date) => {
+    setDate(date);
+  }
+   const handleTimeSelection = (time) => {
+    setTime(time);
+   }
+  const handleMedicationSelection = (medication) => {
+    setMedicationName(medication);
+  }
+  const handleQuantitySelection = (quantity) => {
+    setQuantity(quantity);
+  }
+  const handleAlarmSelection = (alarm) => {
+    setAlarm(alarm);
+  }
+  const handleCommentSelection = (comment) =>
+  {
+    setComment(comment);
+  }
 
+  const sendDataToRaspberryPi = async () =>
+  {
     
+    const raspberryPiUrl = 'http://192.168.10.34:12346'; 
+  const data = {
+    medicationName,
+    date,
+    time,
+    quantity,
+    comment,
+    alarm,
+  };
+
+  try {
+    const response = await fetch(`${raspberryPiUrl}/api/send-data`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      console.log('Data sent to Raspberry Pi successfully');
+    } else {
+      console.error('Failed to send data to Raspberry Pi');
+    }
+  } catch (error) {
+    console.error('Error sending data to Raspberry Pi:', error);
+  }
+};
+
+
+
+
+
   const handleSave = () => {
     console.log('Medication Name:', medicationName);
     console.log('Date:', date);
     console.log('Time:', time);
     console.log('Quantity:', quantity);
-    console.log('Comment:', inputText);
+    console.log('Comment:', comment);
     console.log('Alarm :', alarm);
+
+    const newReminderData = {
+    title: medicationName,
+      date: date,
+      time: time,
+      quantity : quantity,
+    status: 'taken',
+    comment: comment,
+    };
+    
+    handleAddReminder(newReminderData);
+    sendDataToRaspberryPi();
+
+
   };
   return (
     <View style={styles.container}>
@@ -63,15 +138,15 @@ const AddReminderScreen = ({ closeModal }) =>
         <View style={styles.generalSection}>
           <Text>GENERAL</Text>
         </View>
-        <GeneralButtonReminder title={'Medication name'} rightText={''} icon={'pill'} />
-        <GeneralButtonReminder title={'Date'} rightText={''} icon={'date'} />
-        <GeneralButtonReminder title={'Time'} rightText={''} icon={'time'} />
-        <GeneralButtonReminder title={'Quantity'} rightText={''} icon={'quantity'} />
+        <GeneralButtonReminder title={'Medication name'} rightText={''} icon={'pill'} onMedicationSelect = {handleMedicationSelection} />
+        <GeneralButtonReminder title={'Date'} rightText={''} icon={'date'} onDateSelect={handleDateSelection} />
+        <GeneralButtonReminder title={'Time'} rightText={''} icon={'time'} onTimeSelect={handleTimeSelection} />
+        <GeneralButtonReminder title={'Quantity'} rightText={''} icon={'quantity'} onQuantitySelect = {handleQuantitySelection} />
         <View style={styles.generalSection}>
           <Text>More details</Text>
         </View>
-        <GeneralButtonReminder title={'Comment'} rightText={''} icon={'comment'} />
-        <GeneralButtonReminder title={'Alarm repititions'} rightText={''} icon={'alarm'} />
+        <GeneralButtonReminder title={'Comment'} rightText={''} icon={'comment'} onCommentSelect ={handleCommentSelection}/>
+        <GeneralButtonReminder title={'Alarm repititions'} rightText={''} icon={'alarm'} onAlarmSelect = {handleAlarmSelection} />
         <View style={styles.saveButtonContainer}>
                 <TouchableOpacity activeOpacity={0.7} style={styles.loginButton} onPress={handleSubmit}>
                     <Text style={styles.loginButtonText}>save</Text>

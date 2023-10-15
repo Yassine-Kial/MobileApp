@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import GamesScreen from './GamesScreen/GamesScreen';
 import MedicationOnScreen from './MedicationsScreens/MedicationOnScreen';
 import LiveViewOffScreen from './LiveViewScreens/LiveViewOffScreen';
+import LiveViewOnScreen from './LiveViewScreens/LiveViewOnScreen';
 import HomeScreen from './HomeScreen';
 const homeName = "Home";
 const Medication = "Medication";

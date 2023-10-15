@@ -11,26 +11,43 @@ import
   Poppins_600SemiBold,
   Poppins_700Bold,
   Poppins_800ExtraBold,
-} from '@expo-google-fonts/poppins';
-
-
-import RingDay from '../../Components/RingDay';
+}from '@expo-google-fonts/poppins';
+import RingDay from '../../Components/MedicationsComponents/RingDay';
 import TubeDay from '../../Components/MedicationsComponents/TubeDay';
 import DayReminder from '../../Components/DayReminder';
-import ReminderModal from '../../Components/ReminderModal';
 import AddReminderScreen from './AddReminderScreen';
 function MedicationOnScreen(props)
 {
+
+    const [reminders, setReminders] = useState([]);
+    
+    const addReminder = (newReminderData) => {
+    // Add the new reminder data to the state.
+    setReminders([...reminders, newReminderData]);
+    };
+    
+    const organizedData = reminders.reduce((acc, reminder) => {
+  const date = reminder.date;
+  if (!acc[date]) {
+    acc[date] = [];
+  }
+  acc[date].push(reminder);
+  return acc;
+    }, {});
+    
+
+
+
+
+
+
+
      // Step 2: Add state for modal visibility
   const [modalVisible, setModalVisible2] = useState(false);
-
   // Step 3: Create function to toggle modal visibility
   const toggleModal = () => {
     setModalVisible2(!modalVisible);
   };
-
-
-
     const [isModalVisible, setModalVisible] = useState(false);
     const closeModal = () => {
     setModalVisible(false);
@@ -47,16 +64,8 @@ function MedicationOnScreen(props)
             <StatusBar
                 barStyle="light-content" />
             <View style={styles.header}>
-
-
                 <SafeAreaView style={styles.headerContent}>
-                    
-                    
-                    
-
                     <View style={styles.headerTitleContainer}><Text style={styles.headerTitle}>Medication</Text></View>
-
-
                     <TouchableOpacity onPress={toggleModal} activeOpacity={0.2} style={styles.headerRightPartContainer}>
                         <View style={styles.iconContainerRight}>
                             <Svg
@@ -104,12 +113,9 @@ function MedicationOnScreen(props)
             </View>
             <View style={styles.body}>
                 <ScrollView style={styles.scrollView}>
-                    <DayReminder day={'25 AUGUST'} />
-                    <DayReminder day={'18 MAY'} />
-                    <DayReminder day={'10 JANUARY'} />
-                    <DayReminder day={'18 DECEMBER'} />
-                    <DayReminder day={'3 NOVEMBER'} />
-            <DayReminder day={'5 JULY'}/>
+                    {Object.keys(organizedData).map((date) => (
+  <DayReminder key={date} day={date} reminders={organizedData[date]} />
+))}
             </ScrollView>
                 <TouchableOpacity activeOpacity={0.6} style={styles.addReminderButton} onPress={() => setModalVisible(true)}>
                     <View style={styles.plusIconContainer}>
@@ -142,7 +148,7 @@ function MedicationOnScreen(props)
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            <AddReminderScreen closeModal={closeModal}/>
+            <AddReminderScreen closeModal={closeModal} handleAddReminder={addReminder} />
           </View>
         </View>
       </Modal>
@@ -151,21 +157,17 @@ function MedicationOnScreen(props)
     );
 }
 const styles = StyleSheet.create({
-
     modalContainer2: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
-    
-
     modalContainer: {
     flex: 1,
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent : 'flex-end',
   },
-
   modalContent: {
     width: '100%',
     height : '95%',

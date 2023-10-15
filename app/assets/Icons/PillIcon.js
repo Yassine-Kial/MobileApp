@@ -94,11 +94,7 @@ function PillIcon(props) {
           <Path fill="#fff" d="M0 0H47V47H0z" />
         </ClipPath>
       </Defs>
-    </Svg>
-
-             
+    </Svg>        
     );
 }
-
-
 export default PillIcon;

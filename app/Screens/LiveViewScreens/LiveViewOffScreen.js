@@ -10,6 +10,7 @@ import {
   Poppins_700Bold,
   Poppins_800ExtraBold,
 } from '@expo-google-fonts/poppins';
+import LiveViewOnScreen from './LiveViewOnScreen';
 
 function LiveViewOffScreen(props)
 {
@@ -97,7 +98,8 @@ function LiveViewOffScreen(props)
                     <Text style={styles.primaryText}>Live view is having a siesta.</Text>
                     <Text style={styles.secondaryText}>Wishing you a wonderful day !</Text>
                 </View>
-            </View>         
+            </View> 
+
         </View>
     );
 }

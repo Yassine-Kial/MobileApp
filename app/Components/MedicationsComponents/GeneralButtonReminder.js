@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import { View, Text,StyleSheet, TouchableOpacity, Platform ,Modal} from 'react-native';
-import Svg, { G, Path, Defs, ClipPath, Circle } from "react-native-svg";
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { Picker } from '@react-native-picker/picker';
 import PickerOption from './PickerOption';
 import PlusIcon from '../PlusIcon';
 import SmallPillIcon from '../../assets/Icons/SmallPillIcon';
@@ -11,12 +9,11 @@ import TimeIcon from '../../assets/Icons/TimeIcon';
 import CommentIcon from '../../assets/Icons/CommentIcon';
 import QuantityIcon from '../../assets/Icons/QuantityIcon';
 import AlarmIcon from '../../assets/Icons/AlarmIcon';
-
-const GeneralButtonReminder = ({ icon, title, rightText }) =>
+const GeneralButtonReminder = ({ icon, title, rightText, onDateSelect,onTimeSelect,onQuantitySelect,onMedicationSelect,onAlarmSelect,onCommentSelect}) =>
 {
   let plusIcon;
   if (icon === 'comment') {
-    plusIcon = <PlusIcon />; // Replace with your comment icon component
+    plusIcon = <PlusIcon comment={onCommentSelect}/>; // Replace with your comment icon component
   }
   const [selectedValue1, setSelectedValue1] = useState('1');
   const [selectedValue2, setSelectedValue2] = useState('1');
@@ -26,7 +23,6 @@ const GeneralButtonReminder = ({ icon, title, rightText }) =>
     { label: '2', value: '2' },
     { label: '3', value: '3' },
   ];
-
   const options2 = [
     { label: '1', value: '1' },
     { label: '2', value: '2' },
@@ -48,6 +44,7 @@ const GeneralButtonReminder = ({ icon, title, rightText }) =>
         options={options1}
         onValueChange={(value) =>{
           setSelectedValue1(value);
+          onQuantitySelect(value);
         }}
       />
     );
@@ -61,6 +58,7 @@ const GeneralButtonReminder = ({ icon, title, rightText }) =>
         onValueChange={(value) =>
         {
           setSelectedValue2(value);
+          onAlarmSelect(value);
         }
 }
       />
@@ -75,6 +73,7 @@ const GeneralButtonReminder = ({ icon, title, rightText }) =>
         options={options3}
         onValueChange={(value) => {
           setSelectedValue3(value);
+          onMedicationSelect(value);
         }}
       />
     );
@@ -84,34 +83,44 @@ const GeneralButtonReminder = ({ icon, title, rightText }) =>
     const [date, setDate] = useState(new Date());
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
-    const [text, setText] = useState('');
+  const [text, setText] = useState('');
+  const [mouad, setMouad] = useState('');
 
-    const onChange = (event, selectedDate) =>
-    {
-        const currentDate = selectedDate || date;
-        setShow(Platform.OS == 'ios');
-        setDate(currentDate);
+    const onChange = (event, selectedDate) => {
+  const currentDate = selectedDate || date;
+  setShow(Platform.OS == 'ios');
+  setDate(currentDate);
 
-        let tempDate = new Date(currentDate);
-        let fDate = tempDate.getDate() + '/' + (tempDate.getMonth() + 1) + '/' + tempDate.getFullYear();
-        let fTime = tempDate.getHours() + ':' + tempDate.getMinutes() + ':' + tempDate.getSeconds();
-        setText(fDate);
-    }
+  if (modeType === 'time') {
+    // Check if the mode is set to 'time'
+    let tempDate = new Date(currentDate);
+    let fTime = tempDate.getHours() + ':' + tempDate.getMinutes();
+    setMouad(fTime);
+    onTimeSelect(fTime);
+
+    // Now 'fTime' contains the selected time value
+    console.log('Selected Time:', fTime);
+  } else {
+    // Handle the date selection here
+    let tempDate = new Date(currentDate);
+    let fDate = tempDate.getDate() + '/' + (tempDate.getMonth() + 1) + '/' + tempDate.getFullYear();
+    setText(fDate);
+    onDateSelect(fDate);
+
+    // Now 'fDate' contains the selected date value
+    console.log('Selected Date:', fDate);
+  }
+};
 
     const showMode = (currentMode) =>
     {
         setShow(true);
         setMode(currentMode);
     }
-
     const modeType = icon === 'date' ? 'date' : 'time';
-    
-
-
     const pressDate = () => {
         showMode('date');
     };
-    
     const pressTime = () =>
     {
         showMode('time');
@@ -135,10 +144,6 @@ const GeneralButtonReminder = ({ icon, title, rightText }) =>
       console.log('alarm pressed');
 
     };
-
-
-
-
     const iconFunctions = {
         pill: pressPill,
         date: pressDate,
@@ -147,47 +152,26 @@ const GeneralButtonReminder = ({ icon, title, rightText }) =>
         comment: pressComment,
         alarm : pressAlarm,
 };
-
-
-
-
-
-
-
     const statusSvgPaths = {
     pill: (
       <SmallPillIcon/>
     ),
     date: (
       <DateIcon/>
-        
     ),
       time: (
       <TimeIcon/>
-      
         ),
-    
-    
       quantity: (
-        
        <QuantityIcon/>
-        
-
         ),
-        
       comment: (
-          
         <CommentIcon/>
-          
         ),
-
       alarm: (
-
-        <AlarmIcon/>
-
-                  
+        <AlarmIcon/>     
             ),
-  };
+    };
     return (
 
          <TouchableOpacity style={styles.generalButton} onPress={iconFunctions[icon]}>
@@ -204,13 +188,15 @@ const GeneralButtonReminder = ({ icon, title, rightText }) =>
                     is24Hour={true}
                     display= 'default'
                 onChange={onChange}/>
-                )}
+          )}
+          
+          <Text>{text}</Text>
+          <Text>{mouad}</Text>
         </View>
         </TouchableOpacity>
     );
 }
 const styles = StyleSheet.create({
-
   modalContainer: {
     flex: 1,
     justifyContent: 'center',

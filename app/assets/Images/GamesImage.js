@@ -2,7 +2,6 @@ import * as React from "react"
 import Svg, { Path, G, Defs, ClipPath } from "react-native-svg";
 function GamesImage(props) {
     return (
-
              <Svg
       width={348}
       height={345}

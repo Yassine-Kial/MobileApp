@@ -3,30 +3,25 @@ import { View, StyleSheet, TouchableOpacity, Text, Modal, TextInput } from 'reac
 import Svg, { Path } from "react-native-svg";
 
 
-function PlusIcon(props)
+function PlusIcon({ comment })
 {
     
     const [isModalVisible, setModalVisible] = useState(false);
   const [inputText, setInputText] = useState('');
-
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
-
   const handleInputChange = (text) => {
     setInputText(text);
   };
-
   const handleSubmit = () => {
     // Handle the submitted text here
     console.log('Submitted Text:', inputText);
+    comment(inputText);
     toggleModal(); // Close the modal after handling the input
   };
     return (
-
         <View>
-
-
             <TouchableOpacity onPress={toggleModal}>
                 <View style={styles.PlusIconContainer}>
                     <Svg
@@ -35,7 +30,6 @@ function PlusIcon(props)
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
     >
       <Path
         d="M15 7H9V1a1 1 0 00-2 0v6H1a1 1 0 000 2h6v6a1 1 0 102 0V9h6a1 1 0 100-2z"
@@ -71,8 +65,6 @@ function PlusIcon(props)
     );
 }
 const styles = StyleSheet.create({
-
-   
     PlusIconContainer: {
         justifyContent: 'center',
         alignItems : 'center',

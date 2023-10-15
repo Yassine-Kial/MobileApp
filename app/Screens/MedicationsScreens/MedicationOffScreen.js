@@ -14,7 +14,7 @@ import {
 } from '@expo-google-fonts/poppins';
 
 
-import RingDay from '../../Components/RingDay';
+import RingDay from '../../Components/MedicationsComponents/RingDay';
 import TubeDay from '../../Components/MedicationsComponents/TubeDay';
 
 function MedicationOffScreen(props)

@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, View, StyleSheet,Text,TouchableOpacity, ScrollView } from 'react-native';
-import Svg, { Circle, Path } from "react-native-svg";
+import Svg, {Path } from "react-native-svg";
 import { StatusBar } from 'react-native';
 import {
     useFonts,
@@ -177,7 +177,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         position: 'relative',
     },
-
     leftPartText: {
         color: '#fff',
         fontSize: 17,
