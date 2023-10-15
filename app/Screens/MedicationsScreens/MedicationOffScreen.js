@@ -95,9 +95,7 @@ function MedicationOffScreen(props)
 
 
                     </View>
-
                     <View style={styles.dashboardRightPart}>
-
                         <TubeDay day={'M'} />
                         <TubeDay day={'Tu'} />
                         <TubeDay day={'W'} />
@@ -110,7 +108,6 @@ function MedicationOffScreen(props)
             </View>
             <View style={styles.body}>
                 <View style={styles.listIconContainer}>
-
                      <Svg
       width={100}
       height={100}
@@ -181,15 +178,7 @@ function MedicationOffScreen(props)
                     <View>
                         <Text style={styles.buttonText}>Reminder</Text>
                     </View>
-
-                    
-
-
                  </TouchableOpacity>
-
-
-
-
             </View>
         </View>
     );

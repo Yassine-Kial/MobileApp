@@ -18,14 +18,11 @@ import DayReminder from '../../Components/DayReminder';
 import AddReminderScreen from './AddReminderScreen';
 function MedicationOnScreen(props)
 {
-
     const [reminders, setReminders] = useState([]);
-    
     const addReminder = (newReminderData) => {
     // Add the new reminder data to the state.
     setReminders([...reminders, newReminderData]);
     };
-    
     const organizedData = reminders.reduce((acc, reminder) => {
   const date = reminder.date;
   if (!acc[date]) {
@@ -34,14 +31,6 @@ function MedicationOnScreen(props)
   acc[date].push(reminder);
   return acc;
     }, {});
-    
-
-
-
-
-
-
-
      // Step 2: Add state for modal visibility
   const [modalVisible, setModalVisible2] = useState(false);
   // Step 3: Create function to toggle modal visibility
@@ -59,6 +48,11 @@ function MedicationOnScreen(props)
     Poppins_700Bold,
     Poppins_800ExtraBold,
     });
+
+
+  const remindersEmpty = reminders.length === 0;
+
+
     return (
         <View style={styles.container}>
             <StatusBar
@@ -111,12 +105,66 @@ function MedicationOnScreen(props)
                     </View>
                 </View>
             </View>
-            <View style={styles.body}>
-                <ScrollView style={styles.scrollView}>
-                    {Object.keys(organizedData).map((date) => (
-  <DayReminder key={date} day={date} reminders={organizedData[date]} />
-))}
-            </ScrollView>
+            <View style={remindersEmpty ? styles.nobody : styles.body}>
+                
+                {remindersEmpty && (
+                    <View style={styles.nobody}>
+                        <View style={styles.listIconContainer}>
+                     <Svg
+      width={100}
+      height={100}
+      viewBox="0 0 100 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <Circle cx={50} cy={50} r={50} fill="#EDECED" />
+      <Path
+        d="M32.104 73.958a5.104 5.104 0 100-10.208 5.104 5.104 0 000 10.208z"
+        fill="#461066"
+      />
+      <Path
+        d="M47.417 33.125H76"
+        stroke="#461066"
+        strokeWidth={4.08333}
+        strokeMiterlimit={10}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <Path
+        d="M32.104 37.208a5.104 5.104 0 100-10.208 5.104 5.104 0 000 10.208zM32.104 55.583a5.104 5.104 0 100-10.208 5.104 5.104 0 000 10.208z"
+        fill="#461066"
+      />
+      <Path
+        d="M47.417 51.5H76M47.417 69.875H76"
+        stroke="#461066"
+        strokeWidth={4.08333}
+        strokeMiterlimit={10}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+
+                </View>
+
+
+                <View>
+
+                    <Text style={styles.primaryText}>No data could be found for this patient.</Text>
+                    <Text style={styles.secondaryText}>Add your first reminder !</Text>
+
+                </View>
+        </View>
+      )}
+      {!remindersEmpty && (
+        <ScrollView style={styles.scrollView}>
+          {Object.keys(organizedData).map((date) => (
+            <DayReminder key={date} day={date} reminders={organizedData[date]} />
+          ))}
+        </ScrollView>
+      )}
+
+
                 <TouchableOpacity activeOpacity={0.6} style={styles.addReminderButton} onPress={() => setModalVisible(true)}>
                     <View style={styles.plusIconContainer}>
                         <Svg
@@ -157,6 +205,30 @@ function MedicationOnScreen(props)
     );
 }
 const styles = StyleSheet.create({
+
+
+    nobody: {
+        height: '65%',
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        paddingTop : 50,
+    },
+     primaryText: {
+        color: '#461066',
+        textAlign: 'center',
+        fontFamily: 'Poppins_600SemiBold',
+        fontSize: 20,
+        marginBottom : 20,
+    },
+    secondaryText: {
+        color: '#461066',
+        textAlign: 'center',
+        fontFamily: 'Poppins_500Medium',
+        fontSize : 15,
+    },
+    listIconContainer: {
+        marginBottom: 50,
+    },
     modalContainer2: {
     flex: 1,
     justifyContent: 'center',
