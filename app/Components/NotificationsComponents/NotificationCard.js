@@ -14,8 +14,7 @@ import {
 } from '@expo-google-fonts/poppins';
 
  const  NotificationCard = ({title,content,time,backgroundColor}) =>
-{
-    
+{ 
     const [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_500Medium,
@@ -74,11 +73,12 @@ import {
 const styles = StyleSheet.create({
      notification: {
         flexDirection: 'row',
-        width: '100%',
-        height :'12%',
         alignItems: 'center',
         paddingLeft: 8,
-        marginBottom: 10,
+        borderBottomColor: 'rgba(150,138,138,0.2)',
+        borderBottomWidth: 1,
+        paddingTop: 8,
+        paddingBottom : 8,
     },
 
     notificationTitle: {

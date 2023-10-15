@@ -57,7 +57,7 @@ function HomeScreen({navigation})
                         </View>
                     </TouchableOpacity>
                     <View style={styles.headerTitleContainer}><Text style={styles.headerTitle}>Home</Text></View>
-                    <TouchableOpacity activeOpacity={0.2} style={styles.headerRightPartContainer} onPress={() => navigation.navigate('NotificationsOffScreen')}>
+                    <TouchableOpacity activeOpacity={0.2} style={styles.headerRightPartContainer} onPress={() => navigation.navigate('NotificationsOnScreen')}>
                         <View style={styles.iconContainerRight}>
                             <Svg
       width={24}

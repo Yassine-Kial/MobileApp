@@ -11,6 +11,7 @@ import {
   Poppins_800ExtraBold,
 } from '@expo-google-fonts/poppins';
 import NotificationCard from '../../Components/NotificationsComponents/NotificationCard';
+import ReminderCard from '../../Components/ReminderCard';
 function NotificationsOnScreen(props)
 { 
     const [fontsLoaded] = useFonts({
@@ -69,21 +70,56 @@ function NotificationsOnScreen(props)
                 </SafeAreaView>
             </View>
             <View style={styles.body}>
-                <NotificationCard title={"Medication alert"} time={"1m"} content={"[Patient Name] has taken their [Medication Name] on time."} backgroundColor={"#5FC113"} />
-                <NotificationCard title={"Medication alert"} time={"1m"} content={"[Patient Name] has taken their [Medication Name] on time."} backgroundColor={"#EA0C0C"} />
-                <NotificationCard title={"Health alert"} time={"1w"} content={"[Patient Name] is experiencing elevated stress levels."} backgroundColor={"#EA0C0C"} />
-                <NotificationCard title={"Activity alert"} time={"1w"} content={"[Patient Name] may have fallen. Please check on them."} backgroundColor={"#F36616"} />
-                <NotificationCard title={"Activity alert"} time={"1m"} content={"[Patient Name] completed a game! They played [Game Name]."} backgroundColor={"#5FC113"} />
-                <NotificationCard title={"Medication alert"} time={"1m"} content={"[Patient Name] has taken their [Medication Name] on time."} backgroundColor={"#5FC113"} />
-                <NotificationCard title={"Medication alert"} time={"1m"} content={"[Patient Name] has taken their [Medication Name] on time."} backgroundColor={"#EA0C0C"} />
-                <NotificationCard title={"Health alert"} time={"1w"} content={"[Patient Name] is experiencing elevated stress levels."} backgroundColor={"#EA0C0C"} />
-                <NotificationCard title={"Activity alert"} time={"1w"} content={"[Patient Name] may have fallen. Please check on them."} backgroundColor={"#F36616"} />
-                <NotificationCard title={"Activity alert"} time={"1m"} content={"[Patient Name] completed a game! They played [Game Name]."} backgroundColor={"#5FC113"} />
-                <NotificationCard title={"Medication alert"} time={"1m"} content={"[Patient Name] has taken their [Medication Name] on time."} backgroundColor={"#5FC113"} />
-                <NotificationCard title={"Medication alert"} time={"1m"} content={"[Patient Name] has taken their [Medication Name] on time."} backgroundColor={"#EA0C0C"} />
-                <NotificationCard title={"Health alert"} time={"1w"} content={"[Patient Name] is experiencing elevated stress levels."} backgroundColor={"#EA0C0C"} />
-                <NotificationCard title={"Activity alert"} time={"1w"} content={"[Patient Name] may have fallen. Please check on them."} backgroundColor={"#F36616"} />
-                <NotificationCard title={"Activity alert"} time={"1m"} content={"[Patient Name] completed a game! They played [Game Name]."} backgroundColor={"#5FC113"} />
+
+
+                <ScrollView>
+
+                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+                            
+                                       <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+                                        <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+                                        <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+                                        <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+                                        <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"} />
+                                        <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+                                        <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+                                        <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
+
+
+                    
+
+                    
+
+                </ScrollView>
+               
                 </View>
         </View>
     );
@@ -188,7 +224,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily :'Poppins_400Regular',
     },
-
     body: {
         backgroundColor: '#fff',
         height : '90%',
