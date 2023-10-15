@@ -116,20 +116,9 @@ const styles = StyleSheet.create({
      reminderLowLeftSection: {
          width: '15%',
     },
-
-
-
-    
     status: {
         color: '#fff',
-
-
-
     },
-
-
-   
-
     reminderLow: {
         flexDirection : 'row',
         width: '100%',
@@ -144,11 +133,8 @@ const styles = StyleSheet.create({
         paddingBottom: 15,
         paddingTop : 12,
     },
-
     time: {
-
     },
-
     quantity: {
         fontSize : 18,   
 

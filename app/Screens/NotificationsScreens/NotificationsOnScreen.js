@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState, useEffect} from 'react';
 import { SafeAreaView, View, StyleSheet,Text,TouchableOpacity, ScrollView } from 'react-native';
 import Svg, {Path } from "react-native-svg";
 import { StatusBar } from 'react-native';
@@ -21,6 +21,42 @@ function NotificationsOnScreen(props)
     Poppins_700Bold,
     Poppins_800ExtraBold,
     });
+
+
+
+   // const notifications = [
+      //  { time: "1m", content: "Patient has taken their medication on time", backgroundColor: "red", title: "Medication alert" },
+        //        { time: "1m", content: "Patient has taken their medication on time", backgroundColor: "red", title: "Medication alert" },
+
+        // Add more notification objects as needed
+    //];
+
+
+    const [notifications, setNotifications] = useState([]); // State to store retrieved notifications
+
+
+
+     useEffect(() => {
+    // Function to retrieve notifications
+    const getNotifications = async () => {
+      try {
+        const response = await fetch('http://192.168.8.172:5000/getNotification'); // Replace with your server URL
+        if (response.ok) {
+          const data = await response.json();
+          setNotifications(data);
+        } else {
+          console.error('Failed to fetch notifications');
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    getNotifications(); // Call the getNotifications function when the component mounts
+  }, []);
+
+
+
     return (
         <View style = {styles.god}>
             <StatusBar
@@ -74,49 +110,15 @@ function NotificationsOnScreen(props)
 
                 <ScrollView>
 
-                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-                            
-                                       <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-                                        <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-                                        <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-                                        <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-                                        <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"} />
-                                        <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-                                        <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-                                        <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-                    <NotificationCard time={"1m"} content={"patient hastaken theri medication on time"} backgroundColor={"red"} title={"Medication alert"}/>
-
-
-                    
-
-                    
+                {notifications.map((notification, index) => (
+                    <NotificationCard
+                        key={index}
+                        time={notification.time}
+                        content={notification.content}
+                        backgroundColor={notification.backgroundColor}
+                        title={notification.title}
+                    />
+                ))}
 
                 </ScrollView>
                

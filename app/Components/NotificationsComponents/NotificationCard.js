@@ -12,6 +12,8 @@ import {
   Poppins_700Bold,
   Poppins_800ExtraBold,
 } from '@expo-google-fonts/poppins';
+import NotificationActivity from '../../assets/Icons/NotificationActivity';
+import NotificationPill from '../../assets/Icons/NotificationPill';
 
  const  NotificationCard = ({title,content,time,backgroundColor}) =>
 { 
@@ -32,13 +34,12 @@ import {
              
              
         <View style={styles.notification}>
-                    <View style={[styles.notificationleftSection,{backgroundColor}]}></View>
+             <View style={[styles.notificationleftSection, { backgroundColor }]}>
+                 <NotificationPill/>
+                    </View>
                     <View style={styles.notificationMiddleSection}>
-
                 <Text style={styles.notificationTitle}>{title}</Text>
                 <Text style={styles.notificationContent}>{content}</Text>
-
-
                     </View>
 
 
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
         borderBottomColor: 'rgba(150,138,138,0.2)',
         borderBottomWidth: 1,
         paddingTop: 8,
-        paddingBottom : 8,
+        paddingBottom: 8,
     },
 
     notificationTitle: {
@@ -101,7 +102,9 @@ const styles = StyleSheet.create({
         width: 70,
         height :70,
         borderRadius: 35,
-        marginRight : 8,
+        marginRight: 8,
+        justifyContent: 'center',
+        alignItems : 'center',
     },
 
     notificationMiddleSection: {

@@ -42,7 +42,7 @@ function PrimaryScreen(navigation) {
         <Tab.Screen name={homeName} component={HomeScreen} options={{ headerShown: false }} />
           <Tab.Screen name={Medication} component={MedicationOnScreen} options={{ headerShown: false }} />
                   <Tab.Screen name={Games} component={GamesScreen} options={{ headerShown: false }}/>
-          <Tab.Screen name={LiveView} component={LiveViewOffScreen} options={{ headerShown: false }} />
+          <Tab.Screen name={LiveView} component={LiveViewOnScreen} options={{ headerShown: false }} />
       </Tab.Navigator>
   );
 }
