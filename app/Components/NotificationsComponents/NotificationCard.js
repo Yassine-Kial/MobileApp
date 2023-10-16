@@ -14,35 +14,37 @@ import {
 } from '@expo-google-fonts/poppins';
 import NotificationActivity from '../../assets/Icons/NotificationActivity';
 import NotificationPill from '../../assets/Icons/NotificationPill';
+import NotificationGame from '../../assets/Icons/NotificationGame';
 
  const  NotificationCard = ({title,content,time,backgroundColor}) =>
-{ 
+ { 
+     const renderIcon = () => {
+    if (title === 'Medication Alert') {
+      return <NotificationPill />;
+    } else if (title === 'Game Alert') {
+      return <NotificationGame/>;
+    }
+    else if (title === 'Activity Alert') {
+      return <NotificationActivity/>;
+    }     
+    // You can add more conditions or a default icon here if needed
+  };
     const [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_500Medium,
     Poppins_600SemiBold,
     Poppins_700Bold,
     Poppins_800ExtraBold,
-    });
-     
-     
-
-
-     
-     return (
-             
-             
-             
+    });      
+     return (         
         <View style={styles.notification}>
              <View style={[styles.notificationleftSection, { backgroundColor }]}>
-                 <NotificationPill/>
-                    </View>
+                 {renderIcon()}
+             </View>
                     <View style={styles.notificationMiddleSection}>
                 <Text style={styles.notificationTitle}>{title}</Text>
                 <Text style={styles.notificationContent}>{content}</Text>
                     </View>
-
-
                     <View style={styles.notificationRightSection}>
 
                 <Text style={styles.notificationTime}>{time}</Text>
@@ -62,10 +64,7 @@ import NotificationPill from '../../assets/Icons/NotificationPill';
                             </Svg>
 
                         </TouchableOpacity>
-
-
                     </View>
-
              </View>
 
     );
